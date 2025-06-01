@@ -1,0 +1,102 @@
+
+/* add missing icon */
+.system-modal .side-bar .accordion .accordion-box .header span i {
+
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-icon-KEMEDAR-icon {
+    background-image: url(../images/kemedar-red-icon-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-kemework {
+    background-image: url(../images/kemework-icon-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-kemetro-icon-trans {
+    background-image: url(../images/kemetro-seller-icon-transperent-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-kemereit {
+    background-image: url(../images/KEMEREIT-icon-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-kemecademy-icon {
+    background-image: url(../images/kemecademy-icon-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-kemmeta {
+    background-image: url(../images/kemmeta-icon-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-kemenews-icon {
+    background-image: url(../images/kemenews-icon-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-kemedar-auction {
+    background-image: url(../images/kemedar/kemedar.png);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-camonea {
+    background-image: url(../images/kemetro-seller-icon-transperent-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-xeed-icon {
+    background-image: url(../images/xeed-wallet-icon-trans-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-kemecoricon-transperent {
+    background-image: url(../images/kemecoricon-transperent-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-kemetro-shipper {
+    background-image: url(../images/kemetro-seller-icon-transperent-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-cedronella-icon {
+    background-image: url(../images/cedronella-icon-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-doringa-icon {
+    background-image: url(../images/doringa-icon-square-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-kemedar-auction-square-con-tranperent {
+    background-image: url(../images/kemedar-red-icon-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-ribano {
+    background-image: url(../images/ribano-icon2-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-kemessenger {
+    background-image: url(../images/kemessanger-icon-transperent-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-kemedar-support-icon-transperent {
+    background-image: url(../images/kemedar-support-icon-transperent-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-kemecard-icon-tranport {
+    background-image: url(../images/kemecard-icon-tranport-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-tarateesh-icon {
+    background-image: url(../images/tarateesh-icon-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-kemereno-icon-transperent {
+    background-image: url(../images/kemereno-icon-transperent-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-kemeange-icon-transperent {
+    background-image: url(../images/kemeange-icon-transperent-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-kemetour {
+    background-image: url(../images/kemetour-icon-transperent-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-kememap-icon-transperent {
+    background-image: url(../images/kememap-icon-transperent-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-maqamkareem {
+    background-image: url(../images/maqamkareem.png);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kem-kemedari {
+    background-image: url(../images/kemedari-icon-tranperent-svg.svg);
+}
+.system-modal .side-bar .accordion .accordion-box .header span i.kemmigrant {
+    background-image: url(../images/kemmigrant_icon-svg.svg);
+}
+.kemepromo {
+    background-image: url(../images/kemepromo.svg);
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
