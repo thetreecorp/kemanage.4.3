@@ -45,7 +45,12 @@
 
 <div class="system-modal-left">
     <span class="close-modal-left">
-        <svg class="svg-inline--fa fa-times fa-w-10" aria-hidden="true" focusable="false" data-prefix="far" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M207.6 256l107.72-107.72c6.23-6.23 6.23-16.34 0-22.58l-25.03-25.03c-6.23-6.23-16.34-6.23-22.58 0L160 208.4 52.28 100.68c-6.23-6.23-16.34-6.23-22.58 0L4.68 125.7c-6.23 6.23-6.23 16.34 0 22.58L112.4 256 4.68 363.72c-6.23 6.23-6.23 16.34 0 22.58l25.03 25.03c6.23 6.23 16.34 6.23 22.58 0L160 303.6l107.72 107.72c6.23 6.23 16.34 6.23 22.58 0l25.03-25.03c6.23-6.23 6.23-16.34 0-22.58L207.6 256z"></path></svg>
+        <svg class="svg-inline--fa fa-times fa-w-10" aria-hidden="true" focusable="false" data-prefix="far" data-icon="times"
+            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg="">
+            <path fill="currentColor"
+                d="M207.6 256l107.72-107.72c6.23-6.23 6.23-16.34 0-22.58l-25.03-25.03c-6.23-6.23-16.34-6.23-22.58 0L160 208.4 52.28 100.68c-6.23-6.23-16.34-6.23-22.58 0L4.68 125.7c-6.23 6.23-6.23 16.34 0 22.58L112.4 256 4.68 363.72c-6.23 6.23-6.23 16.34 0 22.58l25.03 25.03c6.23 6.23 16.34 6.23 22.58 0L160 303.6l107.72 107.72c6.23 6.23 16.34 6.23 22.58 0l25.03-25.03c6.23-6.23 6.23-16.34 0-22.58L207.6 256z">
+            </path>
+        </svg>
 
     </span>
     <div class="side-bar">
@@ -59,7 +64,8 @@
                     <div class="q-drawer__content fit scroll">
                         <div>
                             <div class="bg-[#B92025] p-2" style="padding-top: 50px !important">
-                                @if (\Request::route()->getName() == 'sidebar.page')
+                                @auth
+
                                     <div class="relative">
                                         <div class="container mb-1 p-1 d-flex justify-content-center"
                                             style="display: flex !important;
@@ -72,12 +78,12 @@
                                             <a href="#" class="btn btn-sm btn-warning fw-bold">SIGN OUT</a>
                                         </div>
                                     </div>
-                                @endif
-                                @if (\Request::route()->getName() == 'front.page')
+                                    @endauth
+                                     @guest
                                     <div class="q-gutter row" style="--bs-gutter-x: -0.5rem;">
                                         <a class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-black text-white q-btn--actionable q-focusable q-hoverable col"
                                             tabindex="0"
-                                            href="https://ssoserver.dev2.kemedar.com/sso-login?redirect_uri={{ base64_encode(env('APP_URL')) }}"
+                                            href="https://sso.kemedar.com/sso-register?redirect_uri={{ base64_encode(config('app.url')) }}"
                                             style="font-size: 14px;">
                                             <span class="q-focus-helper"></span>
                                             <span
@@ -86,7 +92,7 @@
                                             </span></a>
                                         <a class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle q-btn--actionable q-focusable q-hoverable col text-black bg-[#FFC50B]"
                                             tabindex="0"
-                                            href="https://ssoserver.dev2.kemedar.com/sso-login?redirect_uri={{ base64_encode(env('APP_URL')) }}"
+                                            href="https://sso.kemedar.com/sso-login?redirect_uri={{ base64_encode(config('app.url')) }}"
                                             style="font-size: 14px; margin-left: 8px; background-color:#FFC50B">
                                             <span class="q-focus-helper"></span>
                                             <span
@@ -127,7 +133,7 @@
                                             </ul>
                                         </div>
                                     </div> --}}
-                                @endif
+                                @endguest
 
                             </div>
                             <div class="relative">
@@ -135,17 +141,17 @@
                                     @for ($i = 0; $i < count($sidebar); $i++)
                                         <div class="q-item q-item-type row no-wrap " style="--bs-gutter-x: 0.5rem;"
                                             role="listitem">
-                                            <div
-                                                class="q-item__section column q-item__section--main justify-center bg-[#FFC50B] py-[5px] px-[10px] rounded-md d-flex flex-row justify-between" style="background-color: #FFC50B">
+                                            <div class="q-item__section column q-item__section--main justify-center bg-[#FFC50B] py-[5px] px-[10px] rounded-md d-flex flex-row justify-between"
+                                                style="background-color: #FFC50B">
                                                 <div
                                                     style="display: flex; flex-direction: column; justify-content: center;">
                                                     <div class="q-item__label text-[18px] font-semibold">
-{{--                                                        @if ($sidebar[$i]['custom'] == 1)--}}
-{{--                                                            {!! $sidebar[$i]['icon'] !!}--}}
-{{--                                                        @else--}}
-{{--                                                            <i--}}
-{{--                                                                class="q-icon {{ $sidebar[$i]['icon'] }}"></i>--}}
-{{--                                                        @endif--}}
+                                                        {{--                                                        @if ($sidebar[$i]['custom'] == 1) --}}
+                                                        {{--                                                            {!! $sidebar[$i]['icon'] !!} --}}
+                                                        {{--                                                        @else --}}
+                                                        {{--                                                            <i --}}
+                                                        {{--                                                                class="q-icon {{ $sidebar[$i]['icon'] }}"></i> --}}
+                                                        {{--                                                        @endif --}}
 
 
                                                         {{ $sidebar[$i]['label'] }}</div>
@@ -161,7 +167,15 @@
                                                             data-bs-toggle="collapse"
                                                             data-bs-target="#home-collapse-{{ $sidebar[$i]['id'] }}"
                                                             aria-expanded="false">
-                                                            <svg class="svg-inline--fa fa-caret-down fa-w-10" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="caret-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg>
+                                                            <svg class="svg-inline--fa fa-caret-down fa-w-10"
+                                                                aria-hidden="true" focusable="false" data-prefix="fa"
+                                                                data-icon="caret-down" role="img"
+                                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                                                                data-fa-i2svg="">
+                                                                <path fill="currentColor"
+                                                                    d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+                                                                </path>
+                                                            </svg>
                                                         </button>
                                                     </div>
                                                 @endif
@@ -204,7 +218,7 @@
                                                         @for ($j = 0; $j < count($sidebar[$i]['child']); $j++)
                                                             <div class="d-flex">
                                                                 <a class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable"
-                                                                    href="{{$sidebar[$i]['child'][$j]['link']}}">
+                                                                    href="{{ $sidebar[$i]['child'][$j]['link'] }}">
 
                                                                     <div
                                                                         class="q-item__section column q-item__section--side justify-center q-item__section--avatar">
@@ -233,7 +247,17 @@
                                                                             data-bs-toggle="collapse"
                                                                             data-bs-target="#home-collapse-child-{{ $sidebar[$i]['child'][$j]['id'] }}"
                                                                             aria-expanded="false">
-                                                                            <svg class="svg-inline--fa fa-caret-down fa-w-10" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="caret-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg>
+                                                                            <svg class="svg-inline--fa fa-caret-down fa-w-10"
+                                                                                aria-hidden="true" focusable="false"
+                                                                                data-prefix="fa" data-icon="caret-down"
+                                                                                role="img"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                viewBox="0 0 320 512"
+                                                                                data-fa-i2svg="">
+                                                                                <path fill="currentColor"
+                                                                                    d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+                                                                                </path>
+                                                                            </svg>
                                                                         </button>
                                                                     </div>
                                                                 @endif
@@ -283,8 +307,8 @@
                                     @for ($i = 0; $i < count($sidebarPart2); $i++)
                                         <div class="q-item q-item-type row no-wrap " style="--bs-gutter-x: 0.5rem;"
                                             role="listitem">
-                                            <div
-                                                class="q-item__section column q-item__section--main justify-center bg-[#FFC50B] py-[5px] px-[10px] rounded-md d-flex flex-row justify-between" style="#FFC50B">
+                                            <div class="q-item__section column q-item__section--main justify-center bg-[#FFC50B] py-[5px] px-[10px] rounded-md d-flex flex-row justify-between"
+                                                style="#FFC50B">
                                                 <div
                                                     style="display: flex; flex-direction: column; justify-content: center;">
                                                     <div class="q-item__label text-[18px] font-semibold">
@@ -301,7 +325,15 @@
                                                             data-bs-toggle="collapse"
                                                             data-bs-target="#home-collapse-{{ $sidebarPart2[$i]['id'] }}"
                                                             aria-expanded="false">
-                                                            <svg class="svg-inline--fa fa-caret-down fa-w-10" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="caret-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg>
+                                                            <svg class="svg-inline--fa fa-caret-down fa-w-10"
+                                                                aria-hidden="true" focusable="false" data-prefix="fa"
+                                                                data-icon="caret-down" role="img"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 320 512" data-fa-i2svg="">
+                                                                <path fill="currentColor"
+                                                                    d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+                                                                </path>
+                                                            </svg>
                                                         </button>
                                                     </div>
                                                 @endif
@@ -373,7 +405,17 @@
                                                                             data-bs-toggle="collapse"
                                                                             data-bs-target="#home-collapse-child-{{ $sidebarPart2[$i]['child'][$j]['id'] }}"
                                                                             aria-expanded="false">
-                                                                            <svg class="svg-inline--fa fa-caret-down fa-w-10" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="caret-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg>
+                                                                            <svg class="svg-inline--fa fa-caret-down fa-w-10"
+                                                                                aria-hidden="true" focusable="false"
+                                                                                data-prefix="fa"
+                                                                                data-icon="caret-down" role="img"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                viewBox="0 0 320 512"
+                                                                                data-fa-i2svg="">
+                                                                                <path fill="currentColor"
+                                                                                    d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+                                                                                </path>
+                                                                            </svg>
                                                                         </button>
                                                                     </div>
                                                                 @endif
@@ -386,7 +428,7 @@
 
                                                                     @for ($k = 0; $k < count($sidebarPart2[$i]['child'][$j]['child']); $k++)
                                                                         <a class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable"
-                                                                            href="{{$sidebarPart2[$i]['child'][$j]['link']}}">
+                                                                            href="{{ $sidebarPart2[$i]['child'][$j]['link'] }}">
 
                                                                             <div class="q-item__section column q-item__section--side justify-center q-item__section--avatar"
                                                                                 style="margin-right:-15px">

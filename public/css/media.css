@@ -809,7 +809,7 @@
     .m-top-bar .toooltip-content .countries ul > li.active,
     .m-top-bar .toooltip-content .languages li.active{
 
-        background: #fda706;
+        background: #fda706 !important;
         color: #fff;
     }
     .m-top-bar .toooltip-content .countries ul > li.active span {
@@ -1499,8 +1499,13 @@
         display: none;
     }
 
+    .m-top-bar {
+               background-color:  #facc15 !important ;
+
+    }
     .m-nav-bar {
         display: block;
+       background-color:  #facc15 !important ;
     }
 
     .m-nav-bar .left-side {

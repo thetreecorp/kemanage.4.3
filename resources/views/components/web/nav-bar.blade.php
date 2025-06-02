@@ -136,7 +136,7 @@
                         {{--                                class="fad fa-moon"></i></button> --}}
                     </div>
                     <div>
-                        <img src="{{ asset('images/beta.png') }}" alt="beta version" class="h-7" />
+                        <img src="{{ asset('images/beta.png') }}" alt="beta version" class="h-7" style="height: 2.75rem;" />
                     </div>
                     <div class="right-menu d-inline-block">
                         <button class="main-button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
