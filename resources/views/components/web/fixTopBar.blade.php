@@ -228,11 +228,18 @@
                                 <div class="toooltip-content">
                                     <div class="user-dropdown">
                                         <ul>
-                                            <li><a href="{{ route('manager.dashboard') }}"> <i class="fa fa-home"></i> {{_('Dashboard') }}</a></li>
+                                            <li><a href="{{ route('admin.dashboard') }}"> <i class="fa fa-home"></i> Dashboard</a></li>
                                             {{-- <li><a href="{{ route('manager.profile.index') }}"><i class="fa fa-user"></i> {{_('Profile')}}</a></li> --}}
 
-                                            <li><a href="{{ route('account.logout') }}"><i
-                                                        class="fas fa-sign-out-alt"></i> {{ _('Logout') }}</a></li>
+                                                    <a href="{{ route('logout') }}" class="dropdown-item"
+                                                    onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+                                                    <i class="fas fa-sign-out-alt"></i>
+                                                    <span> Logout </span>
+                                                </a>
+                                                <form id="frm-logout" action="{{ route('logout') }}" method="POST"
+                                                    class="d-none">
+                                                    {{ csrf_field() }}
+                                                </form>
                                         </ul>
                                     </div>
                                 </div>
