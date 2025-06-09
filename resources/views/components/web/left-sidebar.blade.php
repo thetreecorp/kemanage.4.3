@@ -73,9 +73,8 @@
                                             flex-direction: column;">
                                             <img src="{{ asset('images/avatar.png') }}" height="80px" width="80px"
                                                 alt="" style="border-radius: 50%;">
-                                            <span class="fw-bold">Demo User</span>
-                                            <span class="fw-bold">demoemail@kemedar.com</span>
-                                            <a href="#" class="btn btn-sm btn-warning fw-bold">SIGN OUT</a>
+                                            <span class="fw-bold">{{Auth::user()->first_name}}</span>
+                                            <a href="{{ route('logout') }}" class="btn btn-sm btn-warning fw-bold">SIGN OUT</a>
                                         </div>
                                     </div>
                                     @endauth

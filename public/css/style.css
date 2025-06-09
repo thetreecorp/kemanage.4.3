@@ -318,8 +318,8 @@ header{
 
 .top-bar .right-side .nav .toooltip li .avatar{
     border:none;
-    width:30px;
-    height:30px;
+    width:100%;
+    height:100%;
     border-radius: 200px;
     overflow: hidden;
     margin-top: -6px;
@@ -903,10 +903,7 @@ footer .bottom-bar .nav-bar-bottom .popup .popup-content{
 .bg-contact .items:hover .icon-top-submenu{
     color: #1c2d3a !important;
 }
-.bg-contact .items .icon-top-submenu{
-    /* color: #eabd3f !important; */
-    color:#fda706 !important;
-}
+
 
 .popup-content2{
     position:absolute;

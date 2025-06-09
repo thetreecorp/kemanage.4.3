@@ -228,13 +228,13 @@
                                 <div class="toooltip-content">
                                     <div class="user-dropdown">
                                         <ul>
-                                            <li><a href="{{ route('admin.dashboard') }}"> <i class="fa fa-home"></i> Dashboard</a></li>
+                                            <li><a href="{{ route('admin.dashboard') }}"> <i class="fa fa-home" style="color:#c02127"></i> Dashboard</a></li>
                                             {{-- <li><a href="{{ route('manager.profile.index') }}"><i class="fa fa-user"></i> {{_('Profile')}}</a></li> --}}
 
                                                     <a href="{{ route('logout') }}" class="dropdown-item"
                                                     onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
-                                                    <i class="fas fa-sign-out-alt"></i>
-                                                    <span> Logout </span>
+                                                    <i class="fas fa-sign-out-alt" style="color:#c02127"></i>
+                                                    <span style="color: black;"> Logout </span>
                                                 </a>
                                                 <form id="frm-logout" action="{{ route('logout') }}" method="POST"
                                                     class="d-none">
