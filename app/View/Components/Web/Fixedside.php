@@ -44,7 +44,7 @@ class Fixedside extends Component
     public function sideMenu($lang)
     {
         $sideMenu1 = Cache::rememberForever('sideMenu'.$lang, function () use ($lang){
-            $url = config('app.api')."/api/get-menus?name=side_menu_non_login_desktop&lang=".$lang;
+            $url = "https://laravel-kemedar.dev2.kemedar.com/api/get-menus?name=side_menu_non_login_desktop-updated&lang=".$lang;
             return  Http::accept('application/json')->get($url)['result']['data'];
         });
         return $sideMenu1;

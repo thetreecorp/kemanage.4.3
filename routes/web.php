@@ -58,7 +58,7 @@ Route::group(['middleware' => ['version.update', 'addon.update', 'isFrontend']],
 });
 
 Route::group(['middleware' => ['auth', 'version.update']], function () {
-    Route::get('/logout', [LoginController::class, 'logout']);
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::group(['middleware' => ['addon.update']], function () {
         Route::get('profile', [ProfileController::class, 'myProfile'])->name('profile');
         Route::post('profile', [ProfileController::class, 'profileUpdate'])->name('profile.update');

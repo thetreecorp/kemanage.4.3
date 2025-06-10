@@ -4,7 +4,7 @@
 @endphp
 <style>
         .sessionborder {
-        border: #c02127 solid 2px;
+        border: #c02127 solid 2px !important;
     }
 </style>
 <div class='top-bar'>
@@ -148,7 +148,7 @@
                                 <div x-show="open" @click.outside="open = false" class="currenies">
                                     <div class="currency">
                                         <div class="title">
-                                            <span>{{ __('kemecardlayout.Currency') }}</span>
+                                            <span>{{ __('Currency') }}</span>
                                         </div>
                                         <form action="{{ route('currency-Chanage') }}" method="POST">
                                             @csrf
@@ -228,11 +228,18 @@
                                 <div class="toooltip-content">
                                     <div class="user-dropdown">
                                         <ul>
-                                            <li><a href="{{ route('manager.dashboard') }}"> <i class="fa fa-home"></i> {{_('Dashboard') }}</a></li>
+                                            <li><a href="{{ route('admin.dashboard') }}"> <i class="fa fa-home" style="color:#c02127"></i> Dashboard</a></li>
                                             {{-- <li><a href="{{ route('manager.profile.index') }}"><i class="fa fa-user"></i> {{_('Profile')}}</a></li> --}}
 
-                                            <li><a href="{{ route('account.logout') }}"><i
-                                                        class="fas fa-sign-out-alt"></i> {{ _('Logout') }}</a></li>
+                                                    <a href="{{ route('logout') }}" class="dropdown-item"
+                                                    onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+                                                    <i class="fas fa-sign-out-alt" style="color:#c02127"></i>
+                                                    <span style="color: black;"> Logout </span>
+                                                </a>
+                                                <form id="frm-logout" action="{{ route('logout') }}" method="POST"
+                                                    class="d-none">
+                                                    {{ csrf_field() }}
+                                                </form>
                                         </ul>
                                     </div>
                                 </div>
@@ -240,8 +247,12 @@
                         @endauth
 
                         @guest
-                             <li><a class="text-white" href="https://ssoserver.dev2.kemedar.com/sso-login?redirect_uri={{ base64_encode(config('app.url')) }}"><i class="kem-top-header-icons-log-in"></i></a></li>
-                             <li><a class="text-white" href="https://ssoserver.dev2.kemedar.com/sso-register?redirect_uri={{ base64_encode(config('app.url')) }}"><i class="kem-top-header-icons-signup"></i></a></li>
+                            <li><a class="text-white"
+                                    href="https://sso.kemedar.com/sso-login?redirect_uri={{ base64_encode(config('app.url')) }}"><i
+                                        class="kem-top-header-icons-log-in"></i></a></li>
+                            <li><a class="text-white"
+                                    href="https://sso.kemedar.com/sso-register?redirect_uri={{ base64_encode(config('app.url')) }}"><i
+                                        class="kem-top-header-icons-signup"></i></a></li>
 
                         @endguest
                     </ul>
@@ -268,8 +279,8 @@
                                         <ul class='states'>
                                             @if($con['country'])
                                                 @foreach($con['country'] as $country)
-                                                    <li class="{{($country['code'] == session('country_code')) ? 'active' : ''}}" data-code="{{$country['code']}}" data-currency="{{$country['currency']}}">
-                                                        <a href="">
+                                                    <li class="{{($country['code'] == session('country_code')) ? 'sessionborder' : ''}}" data-code="{{$country['code']}}" data-currency="{{$country['currency']}}">
+                                                        <a href="{{ route('country.change', $country['code']) }}">
                                                         <span class="count-flag"><img src="{{asset('country-flags-main/png100px').'/'.$country['code'].'.png'}}" alt="" /></span>
                                                         <span>{{$country['name']}}</span>
                                                         </a>
@@ -288,7 +299,11 @@
                             <ul class="languages">
                                 @if($languages)
                                     @foreach($languages as $lan)
-                                        <li id={{$lan['id']}} data-code={{$lan['code']}} class="{{($lan['code'] == session('locale')) ? 'active' : ''}}"><span class="lang-flag"><img class="img-fluid" src="{{asset('language-flags/png100px').'/'.$lan['code'].'.png'}}" width="20px" alt=""></span>{{$lan['name']}}</li>
+                                        <li id={{$lan['id']}} data-code={{$lan['code']}} class="{{ $lan['code'] == session('language_code') ? 'sessionborder' : '' }}">
+                                            <a href="{{ route('language-Chanage', $lan['code']) }}">
+                                            <span class="lang-flag"><img class="img-fluid" src="{{asset('language-flags/png100px').'/'.$lan['code'].'.png'}}" width="20px" alt=""></span>{{$lan['name']}}
+                                            </a>
+                                        </li>
                                     @endforeach
 
                                 @endif
@@ -465,14 +480,12 @@
                         </a></li>
                     @endauth
                     @guest
-                        <li><a href="https://ssoserver.dev2.kemedar.com/sso-login?redirect_uri={{ base64_encode(config('app.url')) }}">
-                            {{-- <i class="fal fa-sign-in"></i> --}}
-                            <svg class="svg-inline--fa fa-sign-in fa-w-16" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="sign-in" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M184 83.5l164.5 164c4.7 4.7 4.7 12.3 0 17L184 428.5c-4.7 4.7-12.3 4.7-17 0l-7.1-7.1c-4.7-4.7-4.7-12.3 0-17l132-131.4H12c-6.6 0-12-5.4-12-12v-10c0-6.6 5.4-12 12-12h279.9L160 107.6c-4.7-4.7-4.7-12.3 0-17l7.1-7.1c4.6-4.7 12.2-4.7 16.9 0zM512 400V112c0-26.5-21.5-48-48-48H332c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h132c8.8 0 16 7.2 16 16v288c0 8.8-7.2 16-16 16H332c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h132c26.5 0 48-21.5 48-48z"></path></svg>
-                        </a></li>
-                        <li><a href="https://ssoserver.dev2.kemedar.com/sso-register?redirect_uri={{ base64_encode(config('app.url')) }}">
-                            {{-- <i class="fal fa-user-plus"></i> --}}
-                            <svg class="svg-inline--fa fa-user-plus fa-w-16" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="user-plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" data-fa-i2svg=""><path fill="currentColor" d="M632 224h-88v-88c0-4.4-3.6-8-8-8h-16c-4.4 0-8 3.6-8 8v88h-88c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h88v88c0 4.4 3.6 8 8 8h16c4.4 0 8-3.6 8-8v-88h88c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8zm-318.4 64c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4zM416 464c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 56.5 0 102.4 45.9 102.4 102.4V464zM224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"></path></svg>
-                        </a></li>
+                        <li><a
+                                href="https://sso.kemedar.com/sso-login?redirect_uri={{ base64_encode(config('app.url')) }}"><i
+                                    class="fal fa-sign-in text-dark"></i></a></li>
+                        <li><a
+                                href="https://sso.kemedar.com/sso-register?redirect_uri={{ base64_encode(config('app.url')) }}"><i
+                                    class="fal fa-user-plus text-dark"></i></a></li>
                     @endguest
                 </ul>
             </div>
