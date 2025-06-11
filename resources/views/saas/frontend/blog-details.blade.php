@@ -8,14 +8,14 @@
             <div class="blog-details-content">
                 <div class="categoryTitle">
                     <p class="category">
-                        <span>{{ $blogDetails->blogCategory->name }}</span>
+                        <span>{{ __($blogDetails->blogCategory->name) }}</span>
                         <span>/</span>
                         <span>{{ \Carbon\Carbon::parse($blogDetails->publish_date)->format('F d, Y') }}</span>
                     </p>
-                    <h4 class="title">{{ $blogDetails->title }}</h4>
+                    <h4 class="title">{{ __($blogDetails->title) }}</h4>
                 </div>
                 <div class="img"><img src="{{ $blogDetails->image }}" alt="" /></div>
-                <p>{!! $blogDetails->details !!}</p>
+                <p>{!! __($blogDetails->details) !!}</p>
             </div>
         </div>
     </section>
@@ -37,7 +37,7 @@
                                     <span>/</span>
                                     <span>{{ \Carbon\Carbon::parse($data->publish_date)->format('F d, Y') }}</span>
                                 </p>
-                                <a href="{{ route('blog-details',$data->slug) }}" class="title">{{ $data->title }}</a>
+                                <a href="{{ route('blog-details',$data->slug) }}" class="title">{{ __($data->title) }}</a>
                             </div>
                             <div class="d-inline-block">
                                 <a href="{{ route('blog-details',$data->slug) }}" class="link">{{__('Read More')}}</a>

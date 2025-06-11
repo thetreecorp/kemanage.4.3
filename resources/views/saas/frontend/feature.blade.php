@@ -20,8 +20,8 @@
                         <div class="features-listItem">
                             <div class="img"><img src="{{ $data->image }}" alt="" /></div>
                             <div class="content">
-                                <h4 class="title">{{ $data->title }}</h4>
-                                <p class="info">{{ $data->summary }}</p>
+                                <h4 class="title">{{ __($data->title) }}</h4>
+                                <p class="info">{{ __($data->summary) }}</p>
                             </div>
                         </div>
                     </div>
@@ -35,8 +35,8 @@
         <section class="section-gap-bottom">
             <div class="container">
                 <div class="section-content-wrap text-center">
-                    <p class="sub-title">{{ getOption('home_faq_section_name') }}</p>
-                    <h4 class="title pb-0">{{ getOption('home_faq_section_title') }}</h4>
+                    <p class="sub-title">{{ __(getOption('home_faq_section_name')) }}</p>
+                    <h4 class="title pb-0">{{ __(getOption('home_faq_section_title')) }}</h4>
                 </div>
                 <div class="accordion zAccordion-reset zAccordion-one" id="accordionFaqZaiProty">
                     <div class="row rg-20">
@@ -45,12 +45,12 @@
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="heading-{{ $index }}">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $index }}" aria-expanded="false" aria-controls="collapse-{{ $index }}">
-                                            {{ $faq->question }}
+                                            {{ __($faq->question) }}
                                         </button>
                                     </h2>
                                     <div id="collapse-{{ $index }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ $index }}" data-bs-parent="#accordionFaqZaiProty">
                                         <div class="accordion-body">
-                                            {{ $faq->answer }}
+                                            {{ __($faq->answer) }}
                                         </div>
                                     </div>
                                 </div>

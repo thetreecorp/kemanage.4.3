@@ -228,7 +228,25 @@
                                 <div class="toooltip-content">
                                     <div class="user-dropdown">
                                         <ul>
-                                            <li><a href="{{ route('admin.dashboard') }}"> <i class="fa fa-home" style="color:#c02127"></i> Dashboard</a></li>
+                                        @php
+                                        $routes = [
+                                            USER_ROLE_ADMIN => 'admin.dashboard',
+                                            USER_ROLE_OWNER => 'owner.dashboard',
+                                            USER_ROLE_TENANT => 'tenant.dashboard',
+                                            USER_ROLE_MAINTAINER => 'maintainer.dashboard',
+                                        ];
+
+                                        $role = auth()->user()?->role;
+                                    @endphp
+
+                                    @if ($role && isset($routes[$role]))
+                                        <li>
+                                            <a href="{{ route($routes[$role]) }}">
+                                                <i class="fa fa-home" style="color:#c02127"></i> {{__('Dashboard')}}
+                                            </a>
+                                        </li>
+                                    @endif
+
                                             {{-- <li><a href="{{ route('manager.profile.index') }}"><i class="fa fa-user"></i> {{_('Profile')}}</a></li> --}}
 
                                                     <a href="{{ route('logout') }}" class="dropdown-item"
