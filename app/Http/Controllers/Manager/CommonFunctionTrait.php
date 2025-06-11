@@ -24,6 +24,18 @@ trait CommonFunctionTrait
         $oritoken = $this->deEncryptToken($token);
         //dd($token);
         $tokenPayload = JWT::decode($oritoken, new Key($this->key, 'HS256'));
+        $role = 2;
+
+if ($tokenPayload->role == 'property management company') {
+    $role = 1;
+} elseif (
+    $tokenPayload->role == 'home service company' ||
+    $tokenPayload->role == 'finishing company'
+) {
+    $role = 3;
+} else {
+    $role = 2;
+}
 
 
         // dd($tokenPayload);

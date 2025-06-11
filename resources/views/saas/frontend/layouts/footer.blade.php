@@ -5,7 +5,7 @@
             <div class="row rg-20 justify-content-center justify-content-lg-between">
                 <div class="col-lg-5 col-md-6">
                     <a href="{{ route('frontend') }}" class="footer-logo"><img src="{{ getSettingImage('app_logo_white') }}" alt="{{ getOption('app_name') }}" /></a>
-                    <p class="footer-info">{{ getOption('app_footer_text') }}</p>
+                    <p class="footer-info">{!! __(getOption('app_footer_text')) !!}</p>
                     <ul class="footer-social">
                         <li>
                             <a href="{{ getOption('facebook_url') }}" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
@@ -53,7 +53,7 @@
         <div class="footer-bottom">
             <div class="row rg-20 justify-content-between align-items-center flex-column-reverse flex-md-row">
                 <div class="col-lg-6 col-md-5 col-xxl-auto order-md-0">
-                    <p class="text text-center text-md-start">{{ getOption('app_copyright') }} <a href="{{ route('frontend') }}" class="link">{{ getOption('app_developed_by') }}</a></p>
+                    <p class="text text-center text-md-start">{{ __(getOption('app_copyright')) }} <a href="{{ route('frontend') }}" class="link">{{ __(getOption('app_developed_by')) }}</a></p>
                 </div>
                 <div class="col-lg-6 col-md-7 col-xxl-auto order-md-1">
                     <ul class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-end align-items-center g-17">

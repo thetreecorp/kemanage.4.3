@@ -165,13 +165,13 @@
                                                                     <td>
                                                                         <div class="d-flex align-items-center">
                                                                             <div class="flex-grow-1">
-                                                                                <h6>{{ Str::limit($package->name, 25, '...') }}
+                                                                                <h6>{{ __(Str::limit($package->name, 25, '...')) }}
                                                                                 </h6>
                                                                             </div>
                                                                         </div>
                                                                     </td>
-                                                                    <td>{{ currencyPrice($package->monthly_price) }}</td>
-                                                                    <td>{{ currencyPrice($package->yearly_price) }}</td>
+                                                                    <td>{{ __(currencyPrice($package->monthly_price)) }}</td>
+                                                                    <td>{{ __(currencyPrice($package->yearly_price)) }}</td>
                                                                 </tr>
                                                             @empty
                                                                 <tr>

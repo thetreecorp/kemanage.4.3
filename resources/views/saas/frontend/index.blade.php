@@ -7,11 +7,11 @@
             <div class="container">
                 <div class="heroBanner-content">
                     <div class="left pb-30">
-                        <h4 class="title">{{ getOption('home_hero_title') }}</h4>
-                        <p class="info">{{ getOption('home_hero_summery') }}</p>
+                        <h4 class="title">{{ __(getOption('home_hero_title')) }}</h4>
+                        <p class="info">{{ __(getOption('home_hero_summery')) }}</p>
                         <a href="{{ route('owner.register.form') }}" class="theme-btn py-16 px-30 text-nowrap">{{__('Start Free Trial')}}</a>
                     </div>
-                    <div class="right"><img src="{{ getSettingImage('home_hero_image') }}" alt="" /></div>
+                    <div class="right"><img src="{{ __(getSettingImage('home_hero_image')) }}" alt="" /></div>
                 </div>
             </div>
         </section>
@@ -23,8 +23,8 @@
             <div class="features-section-wrap">
                 <div class="container">
                     <div class="section-content-wrap text-center">
-                        <p class="sub-title text-white">{{ getOption('home_amazing_features_name') }}</p>
-                        <h4 class="title text-white pb-0">{{ getOption('home_amazing_features_title') }}</h4>
+                        <p class="sub-title text-white">{!! __(getOption('home_amazing_features_name'))!!}</p>
+                        <h4 class="title text-white pb-0">{!! __(getOption('home_amazing_features_title')) !!}</h4>
                     </div>
                     <div class="row rg-20 align-items-center">
                         <div class="col-lg-4">
@@ -33,8 +33,8 @@
                                     <div class="wrap-inner">
                                         <div class="wrap">
                                             <div class="icon"><img src="{{ $features[0]->icon }}" alt="" /></div>
-                                            <h4 class="title">{{ $features[0]->title }}</h4>
-                                            <p class="info">{{ $features[0]->summary }}</p>
+                                            <h4 class="title">{!! __($features[0]->title) !!}</h4>
+                                            <p class="info">{!! __($features[0]->summary) !!}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -47,8 +47,8 @@
                                         <div class="wrap-inner">
                                             <div class="wrap">
                                                 <div class="icon"><img src="{{ $features[1]->icon }}" alt="" /></div>
-                                                <h4 class="title">{{ $features[1]->title }}</h4>
-                                                <p class="info">{{ $features[1]->summary }}</p>
+                                                <h4 class="title">{{ __($features[1]->title) }}</h4>
+                                                <p class="info">{{ __($features[1]->summary) }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -58,8 +58,8 @@
                                         <div class="wrap-inner">
                                             <div class="wrap">
                                                 <div class="icon"><img src="{{ $features[2]->icon }}" alt="" /></div>
-                                                <h4 class="title">{{ $features[2]->title }}</h4>
-                                                <p class="info">{{ $features[2]->summary }}</p>
+                                                <h4 class="title">{{ __($features[2]->title) }}</h4>
+                                                <p class="info">{{ __($features[2]->summary) }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -72,8 +72,8 @@
                                     <div class="wrap-inner">
                                         <div class="wrap">
                                             <div class="icon"><img src="{{ $features[3]->icon }}" alt="" /></div>
-                                            <h4 class="title">{{ $features[3]->title }}</h4>
-                                            <p class="info">{{ $features[3]->summary }}</p>
+                                            <h4 class="title">{{ __($features[3]->title) }}</h4>
+                                            <p class="info">{{ __($features[3]->summary) }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -90,8 +90,8 @@
         <section class="section-gap">
             <div class="container">
                 <div class="section-content-wrap text-center">
-                    <p class="sub-title">{{ getOption('home_advance_feature_section_name') }}</p>
-                    <h4 class="title pb-0">{{ getOption('home_advance_feature_section_title') }}</h4>
+                    <p class="sub-title">{{ __(getOption('home_advance_feature_section_name')) }}</p>
+                    <h4 class="title pb-0">{{ __(getOption('home_advance_feature_section_title')) }}</h4>
                 </div>
                 <div class="moreFeatures-item-wrap">
                     @foreach($corePages as $data)
@@ -101,8 +101,8 @@
                             </div>
                             <div class="col-lg-5">
                                 <div class="moreFeatures-item-content">
-                                    <h4 class="title">{{ $data->title }}</h4>
-                                    <p class="info">{{ $data->summary }}</p>
+                                    <h4 class="title">{{ __($data->title) }}</h4>
+                                    <p class="info">{{ __($data->summary) }}</p>
                                     <a href="{{ route('login') }}" class="theme-btn py-16 px-30 text-nowrap">{{__('Start Free trail')}}</a>
                                 </div>
                             </div>
@@ -118,8 +118,8 @@
             <div class="container">
                 <div class="pricing-section-content">
                     <div class="section-content-wrap text-center">
-                        <p class="sub-title text-white">{{ getOption('home_price_section_name') }}</p>
-                        <h4 class="title text-white pb-0">{{ getOption('home_price_section_title') }}</h4>
+                        <p class="sub-title text-white">{{ __(getOption('home_price_section_name')) }}</p>
+                        <h4 class="title text-white pb-0">{{ __(getOption('home_price_section_title')) }}</h4>
                     </div>
                     <div class="row rg-20">
                         @foreach($packages as $package)
@@ -129,18 +129,18 @@
                                     <input type="hidden" class="plan_type" name="duration_type" value="1">
                                     <div class="price-plan-one {{ $package->is_default == 1 ? 'active' : '' }}">
                                         <div class="info-content">
-                                            <h4 class="title">{{ $package->name }}</h4>
-                                            <p class="info">{{ $package->description }}</p>
+                                            <h4 class="title">{{ __($package->name) }}</h4>
+                                            <p class="info">{{ __($package->description) }}</p>
                                         </div>
                                         <div class="price-list">
                                             <p class="price zPrice-plan-monthly d-block">
-                                                <span>{{ currencyPrice($package->monthly_price) }}</span>/ {{__('monthly')}}
+                                                <span>{{ __(currencyPrice($package->monthly_price)) }}</span>/ {{__('monthly')}}
                                             </p>
                                             <p class="price zPrice-plan-annually d-none">
-                                                <span>{{currencyPrice($package->yearly_price)}}</span>/ yearly</p>
+                                                <span>{{__(currencyPrice($package->yearly_price))}}</span>/ yearly</p>
                                             @if (in_array($package->type, [PACKAGE_TYPE_PROPERTY, PACKAGE_TYPE_UNIT, PACKAGE_TYPE_TENANT]))
                                                 <p class="font-13 font-medium price-monthly per_monthly_price  d-none">
-                                                    {{ currencyPrice($package->per_monthly_price) }}*1={{ $package->per_monthly_price * 1 }}
+                                                    {{ __(currencyPrice($package->per_monthly_price)) }}*1={{ $package->per_monthly_price * 1 }}
                                                 </p>
                                                 <p
                                                     class="font-13 font-medium d-none price-yearly per_yearly_price  d-none">
@@ -325,16 +325,16 @@
         <section class="section-gap" id="howItWork">
             <div class="container">
                 <div class="section-content-wrap text-center">
-                    <p class="sub-title">{{ getOption('home_how_it_word_section_name') }}</p>
-                    <h4 class="title pb-0">{{ getOption('home_how_it_word_section_title') }}</h4>
+                    <p class="sub-title">{{ __(getOption('home_how_it_word_section_name')) }}</p>
+                    <h4 class="title pb-0">{{ __(getOption('home_how_it_word_section_title')) }}</h4>
                 </div>
                 <div class="row rg-20">
                     @foreach($howItWorks as $key => $data)
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="ourProcess-item">
                                 <p class="sub-title">({{__('Step')}} {{ $key + 1 }})</p>
-                                <h4 class="title">{{ $data->title }}</h4>
-                                <p class="info">{{ $data->summary }}</p>
+                                <h4 class="title">{{ __($data->title) }}</h4>
+                                <p class="info">{{ __($data->summary) }}</p>
                             </div>
                         </div>
                     @endforeach
@@ -347,8 +347,8 @@
         <section class="section-gap bg-grey-rectangle overflow-hidden" data-background="{{ asset('assets/images/testimonial-bg.svg') }}" id="testimonialSection">
             <div class="container">
                 <div class="section-content-wrap text-center">
-                    <p class="sub-title">{{ getOption('home_testimonial_section_name') }}</p>
-                    <h4 class="title pb-0">{{ getOption('home_testimonial_section_title') }}</h4>
+                    <p class="sub-title">{{ __(getOption('home_testimonial_section_name')) }}</p>
+                    <h4 class="title pb-0">{{ __(getOption('home_testimonial_section_title')) }}</h4>
                 </div>
                 <div class="landing-testimonial-wrap">
                     <div class="swiper ldTestiItems">
@@ -358,16 +358,16 @@
                                     <div class="landing-testimonial-item">
                                         <div class="top">
                                             <div class="user">
-                                                <h4 class="name">{{ $testimonial->name }}</h4>
-                                                <p class="degi">{{ $testimonial->designation }}</p>
+                                                <h4 class="name">{{ __($testimonial->name) }}</h4>
+                                                <p class="degi">{{ __($testimonial->designation) }}</p>
                                             </div>
                                             <div class="icon">
                                                 <img src="{{ asset('assets/images/icon/quotes.svg') }}" alt="{{ getOption('app_name') }}" />
                                             </div>
                                         </div>
-                                        <p class="text">{{ $testimonial->comment }}</p>
+                                        <p class="text">{{ __($testimonial->comment) }}</p>
                                         <ul class="ld-testi-rating">
-                                            {!! reviewStar($testimonial->star) !!}
+                                            {!! __(reviewStar($testimonial->star)) !!}
                                         </ul>
                                     </div>
                                 </div>
@@ -387,8 +387,8 @@
         <section class="section-gap" id="faqs">
             <div class="container">
                 <div class="section-content-wrap text-center">
-                    <p class="sub-title">{{ getOption('home_faq_section_name') }}</p>
-                    <h4 class="title pb-0">{{ getOption('home_faq_section_title') }}</h4>
+                    <p class="sub-title">{{ __(getOption('home_faq_section_name')) }}</p>
+                    <h4 class="title pb-0">{{ __(getOption('home_faq_section_title')) }}</h4>
                 </div>
                 <div class="accordion zAccordion-reset zAccordion-one" id="accordionFaqZaiProty">
                     <div class="row rg-20">
@@ -397,12 +397,12 @@
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="heading-{{ $index }}">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $index }}" aria-expanded="false" aria-controls="collapse-{{ $index }}">
-                                            {{ $faq->question }}
+                                            {!! __($faq->question) !!}
                                         </button>
                                     </h2>
                                     <div id="collapse-{{ $index }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ $index }}" data-bs-parent="#accordionFaqZaiProty">
                                         <div class="accordion-body">
-                                            {{ $faq->answer }}
+                                            {!! __($faq->answer) !!}
                                         </div>
                                     </div>
                                 </div>
